@@ -2,6 +2,11 @@ import React from 'react';
 import './sidebar.css';
 
 class Sidebar extends React.Component {
+    constructor(props){
+        super(props);
+        props.language.addListener(this.languageChange);
+    }
+
     render() {
         return (
             <aside>
@@ -12,6 +17,10 @@ class Sidebar extends React.Component {
                 </ul>
             </aside>
         );
+    }
+
+    languageChange(event){
+
     }
 }
 
