@@ -4,11 +4,13 @@ import Sidebar from './components/sidebar';
 import ImageDispay from './components/imagedisplay';
 import React from 'react';
 import { LanguageProcessing } from './languageProcessing';
+import { uploadLanguage } from './dataUploader';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.language = new LanguageProcessing();
+        this.language.addListener(uploadLanguage);
     }
 
     render() {
