@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import { translations } from './translations';
+
+i18n.use(initReactI18next).init(translations);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

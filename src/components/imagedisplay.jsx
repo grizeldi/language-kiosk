@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import React from 'react';
 import './imagedisplay.css';
 
@@ -10,7 +11,8 @@ class ImageDispay extends React.Component {
     render() {
         return (
             <div className="image-display">
-                This is where the image will eventually reside.
+                <p>{t("author")}</p>
+                <p>{t("date")}</p>
             </div>
         );
     }
