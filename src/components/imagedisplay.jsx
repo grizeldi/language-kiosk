@@ -11,10 +11,8 @@ class ImageDispay extends React.Component {
     render() {
         return (
             <div className="image-display">
-                <div className="authorInfo">
-                    <p>{t("author")}</p>
-                    <p>{t("date")}</p>
-                </div>
+                <p>{t("author")}</p>
+                <p>{t("date")}</p>
             </div>
         );
     }
