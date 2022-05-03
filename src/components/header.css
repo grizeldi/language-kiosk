@@ -1,6 +1,13 @@
 header {
-    background-color: hotpink;
-    height: 20vh;
-    margin: 0;
+    background-color: lightblue;
+    border-width: 0 0 0.4vh 0;
+    border-color: black;
+    border-style: solid;
+    height: 19.6vh;
+    line-height:20vh;
     padding: 0;
+}
+
+h1.paintingName{
+    margin:0;
 }

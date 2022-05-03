@@ -12,6 +12,7 @@ class ImageDispay extends React.Component {
         return (
             <div className="image-display">
                 <div className="authorInfo">
+                    <img src="ArtAuthor.jpg" alt="AuthorImg" className="authorImg"/>
                     <p>{t("author")}</p>
                     <p>{t("date")}</p>
                 </div>
