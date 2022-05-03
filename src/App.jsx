@@ -16,9 +16,9 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <Header />
+                <Sidebar language={this.language}/>
                 <div className="mainbody">
-                    <Sidebar language={this.language}/>
+                    <Header />
                     <ImageDispay language={this.language}/>
                 </div>
             </div>
