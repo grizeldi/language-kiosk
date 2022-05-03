@@ -1,14 +1,18 @@
 div.image-display {
-    background-color: #D0D0D0D0;
+    background-color: #D8D8D8D8;
     height: 80vh;
     margin: 0;
 }
 div.authorInfo{
     margin-top: 5vh;
     margin-left: 5vh;
+    padding-right: 5vh;
     float:left;
 }
 img.authorImg{
     width: 50vh;
     height: 50vh;
+}
+div.picInfo{
+    padding: 5vh;
 }

@@ -16,6 +16,11 @@ class ImageDispay extends React.Component {
                     <p>{t("author")}</p>
                     <p>{t("date")}</p>
                 </div>
+                <div className="picInfo">
+                    <p>
+                        {t("description")}
+                    </p>
+                </div>
             </div>
         );
     }
