@@ -6,8 +6,7 @@ export class LanguageProcessing {
         this.listeners = [];
 
         worker.onmessage = (event) => {
-            console.log(event.data);
-            this.notifyListeners({ language: "slovenian" });
+            this.notifyListeners({ language: event.data[0] });
         }
     }
 
