@@ -6,6 +6,7 @@ import React from 'react';
 import { LanguageProcessing } from './languageProcessing';
 import { uploadLanguage } from './dataUploader';
 
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -15,6 +16,7 @@ class App extends React.Component {
 
     render() {
         return (
+            
             <div className="App">
                 <Sidebar language={this.language}/>
                 <div className="mainbody">
