@@ -1,16 +1,12 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import './sidebar.css';
 
 class Sidebar extends React.Component {
-    constructor(props){
-        super(props);
-        props.language.addListener(this.languageChange);
-    }
-
     render() {
         return (
             <aside>
-                <img src="logo192.png" alt="Gallery logo" className="LogoImg"/>
+                <img src="logo192.png" alt="Gallery logo" className="LogoImg" />
                 <div className="info">
                     <ul>
                         <li>Test 1</li>
@@ -21,10 +17,6 @@ class Sidebar extends React.Component {
             </aside>
         );
     }
-
-    languageChange(event){
-
-    }
 }
 
-export default Sidebar;
+export default withTranslation()(Sidebar);

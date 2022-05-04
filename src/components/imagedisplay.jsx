@@ -1,18 +1,18 @@
 import { t } from 'i18next';
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import './imagedisplay.css';
 
 class ImageDispay extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        props.language.addListener(this.languageChange);
     }
 
     render() {
         return (
             <div className="image-display">
                 <div className="authorInfo">
-                    <img src="ArtAuthor.jpg" alt="AuthorImg" className="authorImg"/>
+                    <img src="ArtAuthor.jpg" alt="AuthorImg" className="authorImg" />
                     <p>{t("author")}</p>
                     <p>{t("date")}</p>
                 </div>
@@ -22,13 +22,9 @@ class ImageDispay extends React.Component {
                     </p>
                 </div>
             </div>
-    
-        );
-    }
 
-    languageChange(event){
-        
+        );
     }
 }
 
-export default ImageDispay;
+export default withTranslation()(ImageDispay);

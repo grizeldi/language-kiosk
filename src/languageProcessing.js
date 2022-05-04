@@ -1,5 +1,5 @@
 export class LanguageProcessing {
-    constructor(){
+    constructor() {
         //Called when the app starts, add init code, spawn a web worker... here
         var worker = new Worker('./EdgeScripts/neuralWorker.js')
         worker.postMessage({});
@@ -7,15 +7,15 @@ export class LanguageProcessing {
 
         worker.onmessage = (event) => {
             console.log(event.data);
-            //this.notifyListeners("english")
+            this.notifyListeners({ language: "slovenian" });
         }
     }
 
-    notifyListeners(event){
+    notifyListeners(event) {
         this.listeners.forEach((listener) => listener(event));
     }
 
-    addListener(listener){
+    addListener(listener) {
         if (!this.listeners.includes(listener))
             this.listeners.push(listener);
     }

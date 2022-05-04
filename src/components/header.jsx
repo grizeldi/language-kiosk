@@ -1,9 +1,9 @@
+import { t } from "i18next";
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import './header.css';
-import {t} from "i18next";
 
 class Header extends React.Component {
-
     render() {
         return (
             <header>
@@ -13,4 +13,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+export default withTranslation()(Header);
