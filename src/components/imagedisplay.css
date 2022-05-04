@@ -10,8 +10,8 @@ div.authorInfo{
     float:left;
 }
 img.authorImg{
-    width: 50vh;
-    height: 50vh;
+    width: 25vw;
+    height: 25vw;
 }
 div.picInfo{
     padding: 5vh;
