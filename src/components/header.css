@@ -1,5 +1,5 @@
 header {
-    background-color: lightblue;
+    background-color: #5d7185;
     border-width: 0 0 0.4vh 0;
     border-color: black;
     border-style: solid;
@@ -10,4 +10,5 @@ header {
 
 h1.title{
     margin:0;
+    color: #61DAFB;
 }

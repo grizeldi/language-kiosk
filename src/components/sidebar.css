@@ -7,7 +7,7 @@ aside {
 
     height: 100vh;
     float: left;
-    background-color: lightgray;
+    background-color: #5A6672;
     display: flex;
     flex-direction: column;
 }
