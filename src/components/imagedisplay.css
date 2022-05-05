@@ -12,6 +12,7 @@ div.authorInfo{
 img.authorImg{
     width: 25vw;
     height: 25vw;
+    filter: grayscale(80%);
 }
 div.picInfo{
     padding: 5vh;

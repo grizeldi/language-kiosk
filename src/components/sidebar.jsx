@@ -22,6 +22,7 @@ class Sidebar extends React.Component {
         return (
             <aside>
                 <img src="logo192.png" alt="Gallery logo" className="LogoImg" />
+                <h2>Galerija spodnji duplek</h2>
                 <div className="info">
                     <ul>
                         <li onClick={() => this.changeLanguage("slovenian")}><img src="slovenia.png" alt="SlovenianFlag" className="flag" /></li>
