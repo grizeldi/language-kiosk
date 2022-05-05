@@ -1,19 +1,17 @@
+import i18n from 'i18next';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import App from './App';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
 import { translations } from './translations';
 
 i18n.use(initReactI18next).init(translations);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
+    <App />
 );
 
 // If you want to start measuring performance in your app, pass a function
