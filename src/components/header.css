@@ -1,9 +1,6 @@
 header {
     background-color: #5d7185;
-    border-width: 0 0 0.4vh 0;
-    border-color: black;
-    border-style: solid;
-    height: 19.6vh;
+    height: 20vh;
     line-height:20vh;
     padding: 0;
 }
