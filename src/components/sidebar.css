@@ -26,6 +26,7 @@ img.flag{
     width: 4.5vw;
     margin-right:0.7vw;
     margin-left:0.7vw;
+    cursor: pointer;
 }
 ul {
     list-style-type: none;
