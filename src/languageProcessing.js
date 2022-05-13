@@ -4,34 +4,28 @@ export class LanguageProcessing {
         //Called when the app starts, add init code, spawn a web worker... here
         this.listeners = [];
         
-        let worker = new Worker('./EdgeScripts/neuralWorker.js');
-        worker.onmessage = (event) => {
-            this.notifyListeners({ language: event.data[0] });
-        };
+        
+        //Dis ugly
+        //Browser doesn't allow audio recording before user interacts with site
+        setTimeout(() => {  this.run(); }, 5000);
+    }
 
-
-        if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
-            console.log("getUserMedia not supported");
-            console.log(!navigator.mediaDevices.getUserMedia);
-            return
+    async run(){
+        try{
+            const audioContext = new AudioContext();
+            await audioContext.audioWorklet.addModule('EdgeScripts/audio-processor.js');
+            navigator.mediaDevices.getUserMedia({audio: true, video: false}).then(stream => {
+                let microphone = audioContext.createMediaStreamSource(stream);
+                const audioNode = new AudioWorkletNode(audioContext, 'audio-processor');
+                microphone.connect(audioNode).connect(audioContext.destination);
+                audioNode.port.onmessage = (e) => console.log(e.data);
+            });
+        }catch(e){
+            console.log(e);
         }
-
-        navigator.mediaDevices.getUserMedia({audio: true})
-        .then(stream => {
-            const mediaRecorder = new MediaRecorder(stream);
-            mediaRecorder.start(500);
-
-            mediaRecorder.ondataavailable = function(e) {
-                worker.postMessage({data: e.data});
-            }
-
-        })
-        .catch(err=> {
-            console.log("ERR: getUserMedia returned the following error: " + err);
-        });
-
         
     }
+
 
     notifyListeners(event) {
         this.listeners.forEach((listener) => listener(event));

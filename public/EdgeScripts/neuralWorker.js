@@ -16,17 +16,16 @@ const dict = {
 
 
 onmessage = (e) => {
-    preproc(e.data.data);
-    //let intervalID = setInterval(classifier, 5000);
+    
 }
 
 async function preproc(data){
-    const reader = new FileReader();
-    reader.addEventListener('loadend', () => {
-        let view = new Int8Array(reader.result);
-        classifier(view.toString());   
-    });
-    reader.readAsArrayBuffer(data);
+    // const reader = new FileReader();
+    // reader.addEventListener('loadend', () => {
+    //     let view = new Uint8Array(reader.result);
+    //     classifier(view.toString());   
+    // });
+    // reader.readAsArrayBuffer(data);
 }
 async function classifier(data) {
     
