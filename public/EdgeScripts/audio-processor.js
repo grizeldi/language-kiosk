@@ -1,16 +1,24 @@
+
 class AudioProcessor extends AudioWorkletProcessor { 
-    constructor() {
+  
+    constructor() {  
       super();
-      this.chunk = 0;
+      this.chunk = [];
+      this.chunkLength = 0;
       this.listeners = [];
     }
     
     process (inputs, outputs, parameters) {
-      if(this.chunk % 1000 == 0){
-        console.log(inputs[0][0]);
-        this.port.postMessage('slovenian')
+      let T = 1/sampleRate;
+      this.chunk.push(...inputs[0][0]);
+      this.chunkLength += T*128;
+
+      if(this.chunkLength > 1){
+        this.port.postMessage(this.chunk);
+        this.chunk = [];
+        this.chunkLength = 0;
       }
-      this.chunk += 1;
+
       return true;
     }
   }

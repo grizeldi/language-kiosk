@@ -16,25 +16,18 @@ const dict = {
 
 
 onmessage = (e) => {
-    
+    classify(e.data);
 }
 
-async function preproc(data){
-    // const reader = new FileReader();
-    // reader.addEventListener('loadend', () => {
-    //     let view = new Uint8Array(reader.result);
-    //     classifier(view.toString());   
-    // });
-    // reader.readAsArrayBuffer(data);
-}
-async function classifier(data) {
+
+async function classify(data) {
+    data = data.map(function(x){return Math.round(x*32767)});
     
     var classifier = new EdgeImpulseClassifier();
     await classifier.init();
+    //let features = data.split(',').map(x => Number(x.trim()));
+    let res = classifier.classify(data);
     
-    let features = data.split(',').map(x => Number(x.trim()));
-    let res = classifier.classify(features);
-
     best = "";
     max = 0;
     res.results.forEach(element => {
@@ -44,6 +37,6 @@ async function classifier(data) {
         }
     });
 
-    console.log(res.results[5]);
+    console.log(res.results);
     //postMessage([dict[best]]);
 }
