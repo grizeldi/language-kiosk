@@ -14,6 +14,11 @@ const dict = {
     "cuadro": "spanish"
 };
 
+let votes = {
+    "english": 0,
+    "slovenian": 0,
+    "spanish": 0
+}
 
 onmessage = (e) => {
     classify(e.data);
@@ -38,6 +43,22 @@ async function classify(data) {
     });
 
     // console.log(res.results);
-    console.log(best + " " + max);
-    //postMessage([dict[best]]);
+    if(max >= 0.87 && best!="nothing"){
+        console.log(best + " " + max);
+        votes[dict[best]] += 1;
+    } else {
+        console.log("waiting on strong match");
+    }
+
+    if(votes[dict[best]] > 3){
+        console.log("!! We speaking " + dict[best] + "!" );
+        postMessage(dict[best]);
+        votes = {
+            "english": 0,
+            "slovenian": 0,
+            "spanish": 0
+        }
+    }
+    
+    
 }

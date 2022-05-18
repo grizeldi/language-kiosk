@@ -5,6 +5,7 @@ export class LanguageProcessing {
         this.listeners = [];
         this.classifierWorker = new Worker("EdgeScripts/neuralWorker.js");
         
+        this.classifierWorker.onmessage = (e) => this.notifyListeners({"language": e.data});
         //Dis ugly
         //Browser doesn't allow audio recording before user interacts with site
         setTimeout(() => {  this.run(); }, 5000);
