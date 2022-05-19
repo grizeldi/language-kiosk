@@ -7,7 +7,7 @@ class AudioProcessor extends AudioWorkletProcessor {
 
     // Constants
     this.chunkSize = sampleRate; // How many samples do we want in the buffer
-    this.windowLength = 0.1; // How many seconds need to pass between 2 classification attempts.
+    this.windowLength = 0.5; // How many seconds need to pass between 2 classification attempts.
   }
 
   process(inputs, outputs, parameters) {

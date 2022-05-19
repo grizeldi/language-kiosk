@@ -26,13 +26,13 @@ onmessage = (e) => {
 
 
 async function classify(data) {
-    data = data.map(function(x){return Math.round(x*32767)});
-    
+    data = data.map(function (x) { return Math.round(x * 32767) });
+
     const classifier = new EdgeImpulseClassifier();
     await classifier.init();
     //let features = data.split(',').map(x => Number(x.trim()));
     const res = classifier.classify(data);
-    
+
     let best = "";
     let max = 0;
     res.results.forEach(element => {
@@ -43,15 +43,15 @@ async function classify(data) {
     });
 
     // console.log(res.results);
-    if(max >= 0.87 && best!="nothing"){
+    if (max >= 0.87 && best != "nothing") {
         console.log(best + " " + max);
         votes[dict[best]] += 1;
     } else {
         console.log("waiting on strong match");
     }
 
-    if(votes[dict[best]] > 3){
-        console.log("!! We speaking " + dict[best] + "!" );
+    if (votes[dict[best]] >= 2) {
+        console.log("!! We speaking " + dict[best] + "!");
         postMessage(dict[best]);
         votes = {
             "english": 0,
@@ -59,6 +59,6 @@ async function classify(data) {
             "spanish": 0
         }
     }
-    
-    
+
+
 }
