@@ -13,7 +13,7 @@ div.authorInfo{
 img.authorImg{
     width: 22vw;
     height: auto;
-    max-height: 32.5vw;
+    max-height: 63vh;
     filter: grayscale(80%);
 }
 div.picInfo{

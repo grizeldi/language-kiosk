@@ -30,7 +30,6 @@ class App extends React.Component {
 
     render() {
         return (
-
             <div className="App">
                 <Sidebar />
                 <div className="mainbody">
