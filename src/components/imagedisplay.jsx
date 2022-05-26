@@ -17,9 +17,7 @@ class ImageDispay extends React.Component {
                     <p>{t("date")}</p>
                 </div>
                 <div className="picInfo">
-                    <p>
-                        {t("description")}
-                    </p>
+                    <p dangerouslySetInnerHTML={{ __html: t("description") }}></p>
                 </div>
             </div>
 

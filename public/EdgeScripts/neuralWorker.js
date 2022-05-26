@@ -14,13 +14,15 @@ const dict = {
     "cuadro": "spanish"
 };
 
+const THRESHOLD = 0.96;
+const VOTES_REQUIRED = 2;
+
 let votes = 0;
 let currentLang = "";
 
 onmessage = (e) => {
     classify(e.data);
 }
-
 
 async function classify(data) {
     data = data.map(function (x) { return Math.round(x * 32767) });
@@ -39,11 +41,8 @@ async function classify(data) {
         }
     });
 
-    
-    
-    
-    if (max >= 0.98 && best != "nothing" && best!="random") {
-        if(dict[best] != currentLang){
+    if (max >= THRESHOLD && best != "nothing" && best != "random") {
+        if (dict[best] != currentLang) {
             votes = 0;
         }
         console.log(best + " " + max);
@@ -53,7 +52,7 @@ async function classify(data) {
         console.log("waiting on strong match");
     }
 
-    if (votes >= 3) {
+    if (votes >= VOTES_REQUIRED) {
         console.log("!! We speaking " + currentLang + "!");
         postMessage(currentLang);
         votes = 0;
